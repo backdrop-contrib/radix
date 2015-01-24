@@ -7,18 +7,18 @@
 /**
  * Implements theme_menu_local_tasks().
  */
-function radix_menu_local_tasks(&$variables) {
+function radix_backdrop_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
     $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs primary">';
+    $variables['primary']['#prefix'] .= '<ul class="nav nav-tabs">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills secondary">';
+    $variables['secondary']['#prefix'] .= '<ul class="nav nav-pills">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
@@ -29,7 +29,7 @@ function radix_menu_local_tasks(&$variables) {
 /**
  * Implements theme_table().
  */
-function radix_table($variables) {
+function radix_backdrop_table($variables) {
   // Add default classes to table elements.
   $variables['attributes']['class'] = (isset($variables['attributes']['class'])) ? $variables['attributes']['class'] : array();
   $variables['attributes']['class'] = (is_array($variables['attributes']['class'])) ? $variables['attributes']['class'] : array($variables['attributes']['class']);
@@ -49,14 +49,14 @@ function radix_table($variables) {
 
   // Add sticky headers, if applicable.
   if (count($header) && $sticky) {
-    drupal_add_js('misc/tableheader.js');
+    backdrop_add_js('misc/tableheader.js');
     // Add 'sticky-enabled' class to the table to identify it for JS.
     // This is needed to target tables constructed by this function.
     $attributes['class'][] = 'sticky-enabled';
   }
 
   $output = '<div class="table-responsive">';
-  $output .= '<table' . drupal_attributes($attributes) . ">\n";
+  $output .= '<table' . backdrop_attributes($attributes) . ">\n";
 
   if (isset($caption)) {
     $output .= '<caption>' . $caption . "</caption>\n";
@@ -84,15 +84,15 @@ function radix_table($variables) {
 
       // Build colgroup.
       if (is_array($cols) && count($cols)) {
-        $output .= ' <colgroup' . drupal_attributes($attributes) . '>';
+        $output .= ' <colgroup' . backdrop_attributes($attributes) . '>';
         $i = 0;
         foreach ($cols as $col) {
-          $output .= ' <col' . drupal_attributes($col) . ' />';
+          $output .= ' <col' . backdrop_attributes($col) . ' />';
         }
         $output .= " </colgroup>\n";
       }
       else {
-        $output .= ' <colgroup' . drupal_attributes($attributes) . " />\n";
+        $output .= ' <colgroup' . backdrop_attributes($attributes) . " />\n";
       }
     }
   }
@@ -166,7 +166,7 @@ function radix_table($variables) {
         }
 
         // Build row.
-        $output .= ' <tr' . drupal_attributes($attributes) . '>';
+        $output .= ' <tr' . backdrop_attributes($attributes) . '>';
         $i = 0;
         foreach ($cells as $cell) {
           $cell = tablesort_cell($cell, $header, $ts, $i++);
@@ -187,7 +187,7 @@ function radix_table($variables) {
 /**
  * Implements theme_status_messages().
  */
-function radix_status_messages($variables) {
+function radix_backdrop_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
 
@@ -197,7 +197,7 @@ function radix_status_messages($variables) {
     'warning' => t('Warning message'),
   );
 
-  foreach (drupal_get_messages($display) as $type => $messages) {
+  foreach (backdrop_get_messages($display) as $type => $messages) {
     // Add Bootstrap classes.
     $type = ($type == 'status') ? 'success' : $type;
     $type = ($type == 'error') ? 'danger' : $type;
@@ -228,7 +228,7 @@ function radix_status_messages($variables) {
 /**
  * Implements theme_pager().
  */
-function radix_pager($variables) {
+function radix_backdrop_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
@@ -347,7 +347,7 @@ function radix_pager($variables) {
  *   - percent: The percentage of the progress.
  *   - message: A string containing information to be displayed.
  */
-function radix_progress_bar($variables) {
+function radix_backdrop_progress_bar($variables) {
   $output = '<div class="progress-wrapper">';
   $output .= '<div id="progress" class="progress progress-striped">';
   $output .= '<div class="bar progress-bar-primary" role="progressbar" aria-valuenow="' . $variables['percent'] . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . $variables['percent'] . '%"></div>';

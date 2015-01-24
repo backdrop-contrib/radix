@@ -19,20 +19,6 @@
     }
   }
 
-  // Bootstrap tooltip.
-  Drupal.behaviors.radix_tooltip = {
-    attach: function(context, setting) {
-      $("[data-toggle='tooltip']").tooltip();
-    }
-  }
-
-  // Bootstrap popover.
-  Drupal.behaviors.radix_popover = {
-    attach: function(context, setting) {
-      $("[data-toggle='popover']").popover();
-    }
-  }
-
   $(document).ready(function() {
     // Allow main menu dropdown-toggle to be clickable.
     $('#main-menu .dropdown > a.dropdown-toggle').once('radix-dropdown', function(){
@@ -41,14 +27,5 @@
         window.location.href = $(this).attr('href');
       });
     });
-
-    // Show first tab by default.
-    // Ignore the "primary" tabs on the node edit page.
-    var tabs = $('.nav-tabs').not('.primary');
-    tabs.children('li').first().find('a').tab('show');
-
-    if (hash = window.location.hash) {
-      $('.nav-tabs > li > a[href$=' + hash + ']').tab('show');
-    }
   });
 })(jQuery, Drupal, this, this.document);

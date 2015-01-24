@@ -5,8 +5,10 @@
  */
 
 require_once dirname(__FILE__) . '/includes/utilities.inc';
+require_once dirname(__FILE__) . '/includes/layout.inc';
 require_once dirname(__FILE__) . '/includes/theme.inc';
 require_once dirname(__FILE__) . '/includes/structure.inc';
+require_once dirname(__FILE__) . '/includes/block.inc';
 require_once dirname(__FILE__) . '/includes/form.inc';
 require_once dirname(__FILE__) . '/includes/menu.inc';
 require_once dirname(__FILE__) . '/includes/comment.inc';
@@ -111,25 +113,9 @@ function radix_js_alter(&$javascript) {
 }
 
 /**
- * Implements template_preprocess_page().
+ * Implements template_preprocess_header().
  */
-function radix_preprocess_page(&$variables) {
-  // Determine if the page is rendered using panels.
-  $variables['is_panel'] = FALSE;
-  if (module_exists('page_manager') && count(page_manager_get_current_page())) {
-    $variables['is_panel'] = TRUE;
-  }
-
-  // Make sure tabs is empty.
-  if (empty($variables['tabs']['#primary']) && empty($variables['tabs']['#secondary'])) {
-    $variables['tabs'] = '';
-  }
-
-  // Theme action links as buttons.
-  foreach ($variables['action_links'] as $key => &$link) {
-    $link['#link']['localized_options']['attributes'] = array('class' => array('btn', 'btn-primary'));
-  }
-
+function radix_backdrop_preprocess_header(&$variables) {
   // Add search_form to theme.
   $variables['search_form'] = '';
   if (module_exists('search') && user_access('search content')) {
@@ -148,20 +134,4 @@ function radix_preprocess_page(&$variables) {
   // Format and add main menu to theme.
   $variables['main_menu'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
   $variables['main_menu']['#theme_wrappers'] = array();
-
-  // Add a copyright message.
-  $variables['copyright'] = t('Drupal is a registered trademark of Dries Buytaert.');
-
-  // Display a message if Sass has not been compiled.
-//  $theme_path = drupal_get_path('theme', $GLOBALS['theme']);
-//  $stylesheet_path = $theme_path . '/assets/stylesheets/screen.css';
-//  if (_radix_current_theme() == 'radix') {
-//    $stylesheet_path = $theme_path . '/assets/stylesheets/radix-style.css';
-//  }
-//  if (!file_exists($stylesheet_path)) {
-//    drupal_set_message(t('It looks like %path has not been created yet. Run <code>@command</code> in your theme directory to create it.', array(
-//      '%path' => $stylesheet_path,
-//      '@command' => 'compass watch',
-//    )), 'error');
-//  }
 }

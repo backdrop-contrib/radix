@@ -7,10 +7,10 @@
 /**
  * Implements theme_form().
  */
-function radix_form($variables) {
+function radix_backdrop_form($variables) {
   $element = $variables['element'];
   if (isset($element['#action'])) {
-    $element['#attributes']['action'] = drupal_strip_dangerous_protocols($element['#action']);
+    $element['#attributes']['action'] = backdrop_strip_dangerous_protocols($element['#action']);
   }
   element_set_attributes($element, array('method', 'id'));
   if (empty($element['#attributes']['accept-charset'])) {
@@ -21,19 +21,19 @@ function radix_form($variables) {
   $element['#attributes']['role'] = "form";
 
   // Anonymous DIV to satisfy XHTML compliance.
-  return '<form' . drupal_attributes($element['#attributes']) . '><div>' . $element['#children'] . '</div></form>';
+  return '<form' . backdrop_attributes($element['#attributes']) . '><div>' . $element['#children'] . '</div></form>';
 }
 
 /**
  * Implements hook_element_info_alter().
  */
-function radix_element_info_alter(&$elements) {
+function radix_backdrop_element_info_alter(&$elements) {
   foreach ($elements as &$element) {
     // Process all elements.
-    $element['#process'][] = '_radix_process_element';
+    $element['#process'][] = '_radix_backdrop_process_element';
     // Process input elements.
     if (!empty($element['#input'])) {
-      $element['#process'][] = '_radix_process_input';
+      $element['#process'][] = '_radix_backdrop_process_input';
     }
   }
 }
@@ -41,7 +41,7 @@ function radix_element_info_alter(&$elements) {
 /**
  * Process all elements.
  */
-function _radix_process_element(&$element, &$form_state) {
+function _radix_backdrop_process_element(&$element, &$form_state) {
   // Add form-inline or form-group classes.
   if (!empty($element['#attributes']['class']) && is_array($element['#attributes']['class'])) {
     if (in_array('container-inline', $element['#attributes']['class'])) {
@@ -57,7 +57,7 @@ function _radix_process_element(&$element, &$form_state) {
 /**
  * Process input elements.
  */
-function _radix_process_input(&$element, &$form_state) {
+function _radix_backdrop_process_input(&$element, &$form_state) {
   // Add form-control class.
   $types = array(
     'textfield',
@@ -86,7 +86,7 @@ function _radix_process_input(&$element, &$form_state) {
 /**
  * Implements theme_form_element().
  */
-function radix_form_element($variables) {
+function radix_backdrop_form_element($variables) {
   $element = &$variables['element'];
   $is_checkbox = FALSE;
   $is_radio = FALSE;
@@ -144,7 +144,7 @@ function radix_form_element($variables) {
   if (!empty($element['#attributes']['disabled'])) {
     $attributes['class'][] = 'form-disabled';
   }
-  $output = '<div' . drupal_attributes($attributes) . '>' . "\n";
+  $output = '<div' . backdrop_attributes($attributes) . '>' . "\n";
 
   // If #title is not set, we don't display any label or required marker.
   if (!isset($element['#title'])) {
@@ -210,7 +210,7 @@ function radix_form_element($variables) {
 /**
  * Implements theme_form_element_label().
  */
-function radix_form_element_label($variables) {
+function radix_backdrop_form_element_label($variables) {
   $element = $variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -252,13 +252,13 @@ function radix_form_element_label($variables) {
   $output .= $t('!title !required', array('!title' => $title, '!required' => $required));
 
   // The leading whitespace helps visually separate fields from inline labels.
-  return ' <label' . drupal_attributes($attributes) . '>' . $output . "</label>\n";
+  return ' <label' . backdrop_attributes($attributes) . '>' . $output . "</label>\n";
 }
 
 /**
  * Implements theme_button().
  */
-function radix_button($variables) {
+function radix_backdrop_button($variables) {
   $element = $variables['element'];
   $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
@@ -275,13 +275,13 @@ function radix_button($variables) {
     $element['#attributes']['class'][] = 'btn-primary';
   }
 
-  return '<input' . drupal_attributes($element['#attributes']) . ' />';
+  return '<input' . backdrop_attributes($element['#attributes']) . ' />';
 }
 
 /**
  * Implements theme_date().
  */
-function radix_date($variables) {
+function radix_backdrop_date($variables) {
   $element = $variables['element'];
 
   $attributes = array();
@@ -293,19 +293,19 @@ function radix_date($variables) {
   }
   $attributes['class'][] = 'form-inline';
 
-  return '<div' . drupal_attributes($attributes) . '>' . drupal_render_children($element) . '</div>';
+  return '<div' . backdrop_attributes($attributes) . '>' . backdrop_render_children($element) . '</div>';
 }
 
 /**
  * Implements theme_fieldset().
  */
-function radix_fieldset($variables) {
+function radix_backdrop_fieldset($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id'));
   _form_set_class($element, array('form-wrapper'));
   _form_set_class($element, array('panel', 'panel-default'));
 
-  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
+  $output = '<fieldset' . backdrop_attributes($element['#attributes']) . '>';
   if (!empty($element['#title'])) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
     $output .= '<legend class="panel-heading"><div class="panel-title fieldset-legend">' . $element['#title'] . '</div></legend>';
