@@ -6,6 +6,7 @@ backdrop = 1.x
 
 ; Base - Radix
 base theme  = radix_backdrop
+hidden = TRUE
 
 ; CSS - General
 stylesheets[all][]     = assets/stylesheets/screen.css
