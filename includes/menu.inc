@@ -21,7 +21,7 @@ function radix_menu_tree__menu_block(&$variables) {
 /**
  * Implements theme_menu_tree__navbar_nav().
  */
-function radix_backdrop_menu_tree__navbar_nav(&$variables) {
+function radix_menu_tree__navbar_nav(&$variables) {
   return '<ul class="menu nav navbar-nav">' . $variables['tree'] . '</ul>';
 }
 

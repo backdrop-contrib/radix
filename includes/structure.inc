@@ -7,7 +7,7 @@
 /**
  * Implements theme_menu_local_tasks().
  */
-function radix_backdrop_menu_local_tasks(&$variables) {
+function radix_menu_local_tasks(&$variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
@@ -29,7 +29,7 @@ function radix_backdrop_menu_local_tasks(&$variables) {
 /**
  * Implements theme_table().
  */
-function radix_backdrop_table($variables) {
+function radix_table($variables) {
   // Add default classes to table elements.
   $variables['attributes']['class'] = (isset($variables['attributes']['class'])) ? $variables['attributes']['class'] : array();
   $variables['attributes']['class'] = (is_array($variables['attributes']['class'])) ? $variables['attributes']['class'] : array($variables['attributes']['class']);
@@ -187,7 +187,7 @@ function radix_backdrop_table($variables) {
 /**
  * Implements theme_status_messages().
  */
-function radix_backdrop_status_messages($variables) {
+function radix_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
 
@@ -228,7 +228,7 @@ function radix_backdrop_status_messages($variables) {
 /**
  * Implements theme_pager().
  */
-function radix_backdrop_pager($variables) {
+function radix_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
@@ -347,7 +347,7 @@ function radix_backdrop_pager($variables) {
  *   - percent: The percentage of the progress.
  *   - message: A string containing information to be displayed.
  */
-function radix_backdrop_progress_bar($variables) {
+function radix_progress_bar($variables) {
   $output = '<div class="progress-wrapper">';
   $output .= '<div id="progress" class="progress progress-striped">';
   $output .= '<div class="bar progress-bar-primary" role="progressbar" aria-valuenow="' . $variables['percent'] . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . $variables['percent'] . '%"></div>';

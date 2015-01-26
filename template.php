@@ -115,7 +115,7 @@ function radix_js_alter(&$javascript) {
 /**
  * Implements template_preprocess_header().
  */
-function radix_backdrop_preprocess_header(&$variables) {
+function radix_preprocess_header(&$variables) {
   // Add search_form to theme.
   $variables['search_form'] = '';
   if (module_exists('search') && user_access('search content')) {

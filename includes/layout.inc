@@ -33,7 +33,7 @@
  *     this layout. This may be used to provide preprocess functions to prepare
  *     variables for the use of the layout.
  */
-//function radix_backdrop_layout_info() {
+//function radix_layout_info() {
 //  dpm('dadas');
 //  $layouts['radix_default'] = array(
 //    'title' => t('Radix Default'),

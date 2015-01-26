@@ -7,12 +7,12 @@ Radix is a base theme for [Backdrop](http://backdropcms.org). It has Bootstrap a
 ### Installation
 
 1. Click on **Download ZIP** in the sidebar to download a copy of the theme.
-2. Extract the files and rename the folder to radix_backdrop.
-3. Copy and place the **radix_backdrop** folder to /themes.
+2. Extract the files and rename the folder to radix.
+3. Copy and place the **radix** folder to /themes.
 
 ### How to create a subtheme
 
-1. Copy the **default** kit under radix_backdrop/kits.
+1. Copy the **default** kit under radix/kits.
 2. Place the **default** kit in your themes folder at /themes.
 3. Rename the **default** folder to **YOUR_THEME_NAME**.
 4. Edit **default.info** and replace {{Name}} and {{Description}} with your theme name and description respectively.

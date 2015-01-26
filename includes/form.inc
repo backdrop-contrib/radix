@@ -7,7 +7,7 @@
 /**
  * Implements theme_form().
  */
-function radix_backdrop_form($variables) {
+function radix_form($variables) {
   $element = $variables['element'];
   if (isset($element['#action'])) {
     $element['#attributes']['action'] = backdrop_strip_dangerous_protocols($element['#action']);
@@ -27,13 +27,13 @@ function radix_backdrop_form($variables) {
 /**
  * Implements hook_element_info_alter().
  */
-function radix_backdrop_element_info_alter(&$elements) {
+function radix_element_info_alter(&$elements) {
   foreach ($elements as &$element) {
     // Process all elements.
-    $element['#process'][] = '_radix_backdrop_process_element';
+    $element['#process'][] = '_radix_process_element';
     // Process input elements.
     if (!empty($element['#input'])) {
-      $element['#process'][] = '_radix_backdrop_process_input';
+      $element['#process'][] = '_radix_process_input';
     }
   }
 }
@@ -41,7 +41,7 @@ function radix_backdrop_element_info_alter(&$elements) {
 /**
  * Process all elements.
  */
-function _radix_backdrop_process_element(&$element, &$form_state) {
+function _radix_process_element(&$element, &$form_state) {
   // Add form-inline or form-group classes.
   if (!empty($element['#attributes']['class']) && is_array($element['#attributes']['class'])) {
     if (in_array('container-inline', $element['#attributes']['class'])) {
@@ -57,7 +57,7 @@ function _radix_backdrop_process_element(&$element, &$form_state) {
 /**
  * Process input elements.
  */
-function _radix_backdrop_process_input(&$element, &$form_state) {
+function _radix_process_input(&$element, &$form_state) {
   // Add form-control class.
   $types = array(
     'textfield',
@@ -86,7 +86,7 @@ function _radix_backdrop_process_input(&$element, &$form_state) {
 /**
  * Implements theme_form_element().
  */
-function radix_backdrop_form_element($variables) {
+function radix_form_element($variables) {
   $element = &$variables['element'];
   $is_checkbox = FALSE;
   $is_radio = FALSE;
@@ -210,7 +210,7 @@ function radix_backdrop_form_element($variables) {
 /**
  * Implements theme_form_element_label().
  */
-function radix_backdrop_form_element_label($variables) {
+function radix_form_element_label($variables) {
   $element = $variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -258,7 +258,7 @@ function radix_backdrop_form_element_label($variables) {
 /**
  * Implements theme_button().
  */
-function radix_backdrop_button($variables) {
+function radix_button($variables) {
   $element = $variables['element'];
   $element['#attributes']['type'] = 'submit';
   element_set_attributes($element, array('id', 'name', 'value'));
@@ -281,7 +281,7 @@ function radix_backdrop_button($variables) {
 /**
  * Implements theme_date().
  */
-function radix_backdrop_date($variables) {
+function radix_date($variables) {
   $element = $variables['element'];
 
   $attributes = array();
@@ -299,7 +299,7 @@ function radix_backdrop_date($variables) {
 /**
  * Implements theme_fieldset().
  */
-function radix_backdrop_fieldset($variables) {
+function radix_fieldset($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id'));
   _form_set_class($element, array('form-wrapper'));

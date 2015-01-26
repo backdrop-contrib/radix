@@ -17,7 +17,7 @@ require_once dirname(__FILE__) . '/includes/view.inc';
  * Implements hook_css_alter().
  */
 function default_css_alter(&$css) {
-  $radix_path = backdrop_get_path('theme', 'radix_backdrop');
+  $radix_path = backdrop_get_path('theme', 'radix');
 
   // Radix now includes compiled stylesheets for demo purposes.
   // We remove these from our subtheme since they are already included 

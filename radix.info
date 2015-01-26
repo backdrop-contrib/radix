@@ -1,5 +1,5 @@
-name        = Radix Backdrop
-description = A Drupal theme with Bootstrap and Sass.
+name        = Radix
+description = A Backdrop base theme with Bootstrap and Sass.
 screenshot  = screenshot.png
 version = BACKDROP_VERSION
 backdrop = 1.x
