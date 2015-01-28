@@ -18,7 +18,8 @@ Radix is a base theme for [Backdrop](http://backdropcms.org). It has Bootstrap a
 4. Edit **default.info** and replace {{Name}} and {{Description}} with your theme name and description respectively.
 5. Rename **default.info** to **YOUR_THEME_NAME.info**
 6. Edit template.php and rename the **default_css_alter** to **YOUR_THEME_NAME_css_alter**
-7. Go to Appearance and enable your theme.
+7. Comment or delete the line ```hidden = true```.
+8. Go to Appearance and enable your theme.
 
 ### How to style using Sass
 
