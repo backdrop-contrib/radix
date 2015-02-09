@@ -19,9 +19,9 @@
  * - $menu: The menu for the header (if any), as an HTML string.
  */
 ?>
-<header id="header" class="header" role="header">
+
   <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -48,4 +48,3 @@
       </div><!-- /.navbar-collapse -->
     </div> <!-- /.container -->
   </nav><!-- /.navbar -->
-</header>

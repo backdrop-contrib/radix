@@ -2547,7 +2547,7 @@ fieldset .panel-body {
 
 /* line 73, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_form.scss */
 html.js input.form-autocomplete {
-  background: url('../images/throbber.gif?1421606042') no-repeat right 8px #fff !important;
+  background: url('../images/throbber.gif?1422304532') no-repeat right 8px #fff !important;
 }
 /* line 76, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_form.scss */
 html.js input.throbbing {
@@ -2801,47 +2801,3 @@ html.js fieldset.collapsed {
     float: none !important;
     margin: 0 0 10px !important;
   }
-}
-
-/* line 3, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment {
-  margin-top: 15px;
-}
-/* line 5, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .user-picture {
-  float: left;
-  margin-right: 10px;
-}
-/* line 8, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .user-picture a {
-  display: block;
-}
-/* line 12, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .submitted {
-  font-size: 0.90em;
-}
-/* line 14, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .submitted .permalink {
-  margin-left: 5px;
-}
-/* line 17, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .submitted .new {
-  color: #d9534f;
-}
-/* line 21, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .content {
-  margin: 10px 0;
-}
-/* line 24, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_comment.scss */
-.comment .links {
-  font-size: 0.80em;
-}
-
-/* line 3, ../../../../../../../.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/compass_radix-3.1.4/stylesheets/compass_radix/_admin.scss */
-.views-display-setting .views-admin-label {
-  display: inline-block;
-  float: left;
-  /* LTR */
-  margin-right: 3pt;
-  /* LTR */
-}
