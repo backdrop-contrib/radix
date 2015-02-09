@@ -2,17 +2,17 @@
 
 Radix is a base theme for [Backdrop](http://backdropcms.org). It has Bootstrap and Sass, and makes it easy to build responsive themes.
 
-### Demo
+## Demo
 
 http://dev-radix-backdrop.pantheon.io
 
-### Installation
+## Installation
 
 1. Click on **Download ZIP** in the sidebar to download a copy of the theme.
 2. Extract the files and rename the folder to radix.
 3. Copy and place the **radix** folder to /themes.
 
-### How to create a subtheme
+## How to create a subtheme
 
 1. Copy the **default** kit under radix/kits.
 2. Place the **default** kit in your themes folder at /themes.
@@ -23,7 +23,7 @@ http://dev-radix-backdrop.pantheon.io
 7. Comment or delete the line ```hidden = true```.
 8. Go to Appearance and enable your theme.
 
-### How to style using Sass
+## How to style using Sass
 
 Radix uses Sass as a CSS extension language. To compile Sass you will need compass. Follow the instructions below to install Compass.
 
