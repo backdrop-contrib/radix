@@ -30,8 +30,12 @@
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
 
-  <?php if ($content['header']): ?>
-    <?php print $content['header']; ?>
+  <?php if (!empty($content['header'])): ?>
+    <header id="header" class="header" role="header">
+      <div class="container">
+        <?php print $content['header']; ?>
+      </div>
+    </header>
   <?php endif; ?>
 
   <?php if ($content['top']): ?>
