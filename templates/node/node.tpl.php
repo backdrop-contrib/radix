@@ -11,7 +11,7 @@
  * @ingroup themeable
  */
 ?>
-<article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="<?php print implode(' ', $classes); ?> clearfix"<?php print backdrop_attributes($attributes); ?>>
 
   <?php print $user_picture; ?>
 
@@ -27,7 +27,7 @@
     </div>
   <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
+  <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
