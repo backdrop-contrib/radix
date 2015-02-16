@@ -2,6 +2,10 @@
 
 Radix is a base theme for [Backdrop](http://backdropcms.org). It has Bootstrap and Sass, and makes it easy to build responsive themes.
 
+## Documentation
+
+http://radixtheme.github.io/documentation
+
 ## Demo
 
 http://dev-radix-backdrop.pantheon.io
