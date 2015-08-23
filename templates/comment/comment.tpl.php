@@ -59,9 +59,9 @@
  * @ingroup themeable
  */
 ?>
-<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div class="<?php print implode(' ', $classes); ?> clearfix"<?php print backdrop_attributes($attributes); ?>>
   <div class="media">
-    <?php print $picture ?>
+    <?php print $user_picture ?>
 
     <div class="media-body">
       <?php print render($title_prefix); ?>
@@ -76,7 +76,7 @@
         <?php print $submitted; ?>
       </div>
 
-      <div class="content"<?php print $content_attributes; ?>>
+      <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
         <?php
           // We hide the comments and links now so that we can render them later.
           hide($content['links']);
