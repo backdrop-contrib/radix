@@ -28,7 +28,7 @@
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
     <div class="panel-heading">
-      <h3<?php print $title_attributes; ?>><?php print $title; ?></h3>
+      <h3><?php print $title; ?></h3>
     </div>
   <?php endif; ?>
   <?php print render($title_suffix); ?>

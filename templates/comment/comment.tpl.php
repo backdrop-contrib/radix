@@ -65,7 +65,7 @@
 
     <div class="media-body">
       <?php print render($title_prefix); ?>
-      <h4<?php print $title_attributes; ?>><?php print $title ?></h4>
+      <h4><?php print $title ?></h4>
       <?php print render($title_suffix); ?>
 
       <div class="submitted">
