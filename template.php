@@ -131,7 +131,7 @@ function radix_preprocess_header(&$variables) {
     $variables['search_form'] = (user_access('search content')) ? $search_box : NULL;
   }
 
-  // Format and add main menu to theme.
-  $variables['main_menu'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-  $variables['main_menu']['#theme_wrappers'] = array();
+  // Format and add specified menu to theme.
+  $menu = $variables['menu-name'] ? menu_navigation_links($variables['menu-name']) : NULL;
+  $variables['menu'] = $menu ? theme('links__header_menu', array('links' => $menu, 'attributes' => array('class' => array('menu', 'nav', 'navbar-nav')))) : NULL;
 }
