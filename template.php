@@ -113,8 +113,15 @@ function radix_preprocess_header(&$variables) {
     $search_box = drupal_render($search_box_form);
     $variables['search_form'] = (user_access('search content')) ? $search_box : NULL;
   }
+}
 
-  // Format and add specified menu to theme.
-  $menu = $variables['menu-name'] ? menu_navigation_links($variables['menu-name']) : NULL;
-  $variables['menu'] = $menu ? theme('links__header_menu', array('links' => $menu, 'attributes' => array('class' => array('menu', 'nav', 'navbar-nav')))) : NULL;
+/**
+ * Implements template_preprocess_links__header_menu().
+ */
+function radix_preprocess_links(&$variables) {
+  if ($variables['theme_hook_original'] == 'links__header_menu') {
+    $variables['attributes']['class'][] = 'menu';
+    $variables['attributes']['class'][] = 'nav';
+    $variables['attributes']['class'][] = 'navbar-nav';
+  }
 }
