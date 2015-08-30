@@ -26,13 +26,13 @@ function radix_preprocess_html(&$variables) {
   if (!module_exists('bootstrap_library')) {
     $base = parse_url($base_url);
     $url = $base['scheme'] . '://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js';
-    drupal_add_js($url, 'external');
+    backdrop_add_js($url, 'external');
   }
 
   // Add support for the Modenizr module.
   // Load modernizr.js only if modernizr module is not present.
   if (!module_exists('modernizr')) {
-    drupal_add_js(drupal_get_path('theme', 'radix') . '/assets/javascripts/modernizr.js');
+    backdrop_add_js(backdrop_get_path('theme', 'radix') . '/assets/javascripts/modernizr.js');
   }
 
   // Add meta for Bootstrap Responsive.
@@ -44,7 +44,8 @@ function radix_preprocess_html(&$variables) {
       'content' => 'width=device-width, initial-scale=1.0',
     ),
   );
-  drupal_add_html_head($element, 'bootstrap_responsive');
+
+  backdrop_add_html_head($element, 'bootstrap_responsive');
 }
 
 /**
@@ -52,12 +53,12 @@ function radix_preprocess_html(&$variables) {
  */
 function radix_css_alter(&$css) {
   // Unset some panopoly css.
-  $panopoly_admin_path = drupal_get_path('module', 'panopoly_admin');
+  $panopoly_admin_path = backdrop_get_path('module', 'panopoly_admin');
   if (isset($css[$panopoly_admin_path . '/panopoly-admin.css'])) {
     unset($css[$panopoly_admin_path . '/panopoly-admin.css']);
   }
 
-  $panopoly_magic_path = drupal_get_path('module', 'panopoly_magic');
+  $panopoly_magic_path = backdrop_get_path('module', 'panopoly_magic');
   if (isset($css[$panopoly_magic_path . '/css/panopoly-modal.css'])) {
     unset($css[$panopoly_magic_path . '/css/panopoly-modal.css']);
   }
@@ -71,27 +72,27 @@ function radix_css_alter(&$css) {
  */
 function radix_js_alter(&$javascript) {
   // Add radix-modal when required.
-  $ctools_modal = drupal_get_path('module', 'ctools') . '/js/modal.js';
-  $radix_modal = drupal_get_path('theme', 'radix') . '/assets/javascripts/radix-modal.js';
+  $ctools_modal = backdrop_get_path('module', 'ctools') . '/js/modal.js';
+  $radix_modal = backdrop_get_path('theme', 'radix') . '/assets/javascripts/radix-modal.js';
   if (!empty($javascript[$ctools_modal]) && empty($javascript[$radix_modal])) {
     $javascript[$radix_modal] = array_merge(
-      drupal_js_defaults(), array('group' => JS_THEME, 'data' => $radix_modal));
+      backdrop_js_defaults(), array('group' => JS_THEME, 'data' => $radix_modal));
   }
 
   // Add radix-field-slideshow when required.
-  $field_slideshow = drupal_get_path('module', 'field_slideshow') . '/field_slideshow.js';
-  $radix_field_slideshow = drupal_get_path('theme', 'radix') . '/assets/javascripts/radix-field-slideshow.js';
+  $field_slideshow = backdrop_get_path('module', 'field_slideshow') . '/field_slideshow.js';
+  $radix_field_slideshow = backdrop_get_path('theme', 'radix') . '/assets/javascripts/radix-field-slideshow.js';
   if (!empty($javascript[$field_slideshow]) && empty($javascript[$radix_field_slideshow])) {
     $javascript[$radix_field_slideshow] = array_merge(
-      drupal_js_defaults(), array('group' => JS_THEME, 'data' => $radix_field_slideshow));
+      backdrop_js_defaults(), array('group' => JS_THEME, 'data' => $radix_field_slideshow));
   }
 
   // Add radix-progress when required.
   $progress = 'misc/progress.js';
-  $radix_progress = drupal_get_path('theme', 'radix') . '/assets/javascripts/radix-progress.js';
+  $radix_progress = backdrop_get_path('theme', 'radix') . '/assets/javascripts/radix-progress.js';
   if (!empty($javascript[$progress]) && empty($javascript[$radix_progress])) {
     $javascript[$radix_progress] = array_merge(
-      drupal_js_defaults(), array('group' => JS_THEME, 'data' => $radix_progress));
+      backdrop_js_defaults(), array('group' => JS_THEME, 'data' => $radix_progress));
   }
 }
 
@@ -102,7 +103,7 @@ function radix_preprocess_header(&$variables) {
   // Add search_form to theme.
   $variables['search_form'] = '';
   if (module_exists('search') && user_access('search content')) {
-    $search_box_form = drupal_get_form('search_form');
+    $search_box_form = backdrop_get_form('search_form');
     $search_box_form['basic']['keys']['#title'] = '';
     $search_box_form['basic']['keys']['#size'] = 20;
     $search_box_form['basic']['keys']['#attributes'] = array('placeholder' => 'Search');
@@ -110,7 +111,7 @@ function radix_preprocess_header(&$variables) {
     $search_box_form['basic']['submit']['#value'] = t('Search');
     $search_box_form['#attributes']['class'][] = 'navbar-form';
     $search_box_form['#attributes']['class'][] = 'navbar-right';
-    $search_box = drupal_render($search_box_form);
+    $search_box = backdrop_render($search_box_form);
     $variables['search_form'] = (user_access('search content')) ? $search_box : NULL;
   }
 

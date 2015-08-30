@@ -91,7 +91,7 @@ function radix_menu_link($variables) {
   if (!empty($element['#below'])) {
     // Wrap in dropdown-menu.
     unset($element['#below']['#theme_wrappers']);
-    $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+    $sub_menu = '<ul class="dropdown-menu">' . backdrop_render($element['#below']) . '</ul>';
     $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
     $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
 
@@ -109,7 +109,7 @@ function radix_menu_link($variables) {
   }
 
   // Fix for active class.
-  if (($element['#href'] == current_path() || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']) || $element['#localized_options']['language']->language == $language_url->language)) {
+  if (($element['#href'] == current_path() || ($element['#href'] == '<front>' && backdrop_is_front_page())) && (empty($element['#localized_options']['language']) || $element['#localized_options']['language']->language == $language_url->language)) {
     $element['#attributes']['class'][] = 'active';
   }
 
@@ -120,10 +120,10 @@ function radix_menu_link($variables) {
 
   // Add a unique class using the title.
   $title = strip_tags($element['#title']);
-  $element['#attributes']['class'][] = 'menu-link-' . drupal_html_class($title);
+  $element['#attributes']['class'][] = 'menu-link-' . backdrop_html_class($title);
 
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  return '<li' . backdrop_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
 /**
@@ -137,10 +137,10 @@ function radix_menu_link__management($variables) {
   $sub_menu = '';
 
   if ($element['#below']) {
-    $sub_menu = drupal_render($element['#below']);
+    $sub_menu = backdrop_render($element['#below']);
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  return '<li' . backdrop_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
 /**
@@ -161,5 +161,5 @@ function radix_link($variables) {
       $variables['options']['attributes']['class'] = array_diff($css_classes, $icon_classes);
     }
   }
-  return '<a href="' . check_plain(url($variables['path'], $variables['options'])) . '"' . drupal_attributes($variables['options']['attributes']) . '>' . $icons . ($variables['options']['html'] ? $variables['text'] : check_plain($variables['text'])) . '</a>';
+  return '<a href="' . check_plain(url($variables['path'], $variables['options'])) . '"' . backdrop_attributes($variables['options']['attributes']) . '>' . $icons . ($variables['options']['html'] ? $variables['text'] : check_plain($variables['text'])) . '</a>';
 }
