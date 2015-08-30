@@ -5,20 +5,6 @@
  */
 
 /**
- * Returns Bootstrap panel classes.
- */
-function _radix_get_bootstrap_panel_classes() {
-  return array(
-    'panel-default',
-    'panel-primary',
-    'panel-success',
-    'panel-info',
-    'panel-warning',
-    'panel-danger'
-  );
-}
-
-/**
  * Returns the current active theme.
  */
 function _radix_current_theme() {
