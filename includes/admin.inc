@@ -51,35 +51,6 @@ function radix_preprocess_views_ui_display_tab_setting(&$variables) {
 }
 
 /**
- * Returns HTML for an administrative block for display.
- *
- * @ingroup themeable
- */
-function radix_admin_block($variables) {
-  $block = $variables['block'];
-  $output = '';
-
-  // Don't display the block if it has no content to display.
-  if (empty($block['show'])) {
-    return $output;
-  }
-
-  $output .= '<div class="panel panel-default">';
-  if (!empty($block['title'])) {
-    $output .= '<div class="panel-heading"><h3 class="panel-title">' . $block['title'] . '</h3></div>';
-  }
-  if (!empty($block['content'])) {
-    $output .= $block['content'];
-  }
-  else {
-    $output .= '<div class="description">' . $block['description'] . '</div>';
-  }
-  $output .= '</div>';
-
-  return $output;
-}
-
-/**
  * Returns HTML for the content of an administrative block.
  *
  * @ingroup themeable

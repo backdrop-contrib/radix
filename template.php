@@ -12,7 +12,6 @@ require_once dirname(__FILE__) . '/includes/block.inc';
 require_once dirname(__FILE__) . '/includes/form.inc';
 require_once dirname(__FILE__) . '/includes/menu.inc';
 require_once dirname(__FILE__) . '/includes/comment.inc';
-require_once dirname(__FILE__) . '/includes/panel.inc';
 require_once dirname(__FILE__) . '/includes/view.inc';
 require_once dirname(__FILE__) . '/includes/admin.inc';
 require_once dirname(__FILE__) . '/includes/contrib.inc';
@@ -46,22 +45,6 @@ function radix_preprocess_html(&$variables) {
     ),
   );
   drupal_add_html_head($element, 'bootstrap_responsive');
-
-  // Add some custom classes for panels pages.
-  if (module_exists('page_manager') && count(page_manager_get_current_page())) {
-    $variables['is_panel'] = TRUE;
-
-    // Get the current panel display and add some classes to body.
-    if ($display = panels_get_current_page_display()) {
-      $variables['classes_array'][] = 'panel-layout-' . $display->layout;
-
-      // Add a custom class for each region that has content.
-      $regions = array_keys($display->panels);
-      foreach ($regions as $region) {
-        $variables['classes_array'][] = 'panel-region-' . $region;
-      }
-    }
-  }
 }
 
 /**
