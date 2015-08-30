@@ -92,7 +92,7 @@ function drush_radix($name = NULL, $machine_name = NULL) {
 
   // Make a fresh copy of the kit.
   // $kit_path = drush_normalize_path(drush_core_drupal_directory('radix') . '/kits/' . $kit);
-  $kit_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'radix') . '/kits/' . $kit);
+  $kit_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . backdrop_get_path('theme', 'radix') . '/kits/' . $kit);
 
   // Allow kits to be pulled from external urls.
   if (valid_url($kit, TRUE)) {

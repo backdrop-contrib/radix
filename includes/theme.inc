@@ -73,12 +73,12 @@ function theme_radix_dropdown($variables) {
   $output = '';
 
   // Add Bootstrap attributes.
-  $attributes = drupal_array_merge_deep($attributes, array('class' => array('dropdown-menu')));
+  $attributes = backdrop_array_merge_deep($attributes, array('class' => array('dropdown-menu')));
 
   if ($wrapper) {
     $output .= '<div class="dropdown">';
   }
-  $output .= '<ul' . drupal_attributes($attributes) . '>';
+  $output .= '<ul' . backdrop_attributes($attributes) . '>';
 
   $num_links = count($links);
   $i = 1;
@@ -102,7 +102,7 @@ function theme_radix_dropdown($variables) {
     }
 
     if (isset($link['href']) && ($link['href'] == $_GET['q']
-        || ($link['href'] == '<front>' && drupal_is_front_page()))) {
+        || ($link['href'] == '<front>' && backdrop_is_front_page()))) {
       $class[] = 'active';
     }
 
@@ -111,7 +111,7 @@ function theme_radix_dropdown($variables) {
       $class[] = 'disabled';
     }
 
-    $output .= '<li' . drupal_attributes(array('class' => $class)) . '>';
+    $output .= '<li' . backdrop_attributes(array('class' => $class)) . '>';
 
     if (isset($link['href'])) {
       // Pass in $link as $options, they share the same keys.
@@ -125,7 +125,7 @@ function theme_radix_dropdown($variables) {
       }
       $span_attributes = '';
       if (isset($link['attributes'])) {
-        $span_attributes = drupal_attributes($link['attributes']);
+        $span_attributes = backdrop_attributes($link['attributes']);
       }
       $output .= '<span' . $span_attributes . '>' . $link['title'] . '</span>';
     }
@@ -152,9 +152,9 @@ function theme_radix_button_group($variables) {
   $output = '';
 
   // Add Bootstrap attributes.
-  $attributes = drupal_array_merge_deep($attributes, array('class' => array('btn-group')));
+  $attributes = backdrop_array_merge_deep($attributes, array('class' => array('btn-group')));
 
-  $output .= '<div' . drupal_attributes($attributes) . '>';
+  $output .= '<div' . backdrop_attributes($attributes) . '>';
 
   $num_links = count($buttons);
   $i = 1;
@@ -172,7 +172,7 @@ function theme_radix_button_group($variables) {
     }
 
     // Add Bootstrap attributes.
-    $button['attributes'] = drupal_array_merge_deep($button['attributes'], array('class' => $class));
+    $button['attributes'] = backdrop_array_merge_deep($button['attributes'], array('class' => $class));
 
     $output .= l($button['title'], $button['href'], $button);
 
@@ -196,20 +196,20 @@ function theme_radix_button_dropdown($variables) {
   $output = '';
 
   // Add Bootstrap attributes.
-  $attributes = drupal_array_merge_deep($attributes, array('class' => array('btn-group')));
+  $attributes = backdrop_array_merge_deep($attributes, array('class' => array('btn-group')));
 
-  $output .= '<div' . drupal_attributes($attributes) . '>';
+  $output .= '<div' . backdrop_attributes($attributes) . '>';
 
   // Handle split buttons.
   if ($split) {
     // Add Boostrap attributes.
-    $button['attributes'] = drupal_array_merge_deep($button['attributes'], array(
+    $button['attributes'] = backdrop_array_merge_deep($button['attributes'], array(
       'class' => array('btn'),
     ));
   }
   else {
     // Add Boostrap attributes.
-    $button['attributes'] = drupal_array_merge_deep($button['attributes'], array(
+    $button['attributes'] = backdrop_array_merge_deep($button['attributes'], array(
       'class' => array('btn', 'dropdown-toggle'),
       'data-toggle' => 'dropdown',
     ));
@@ -229,11 +229,11 @@ function theme_radix_button_dropdown($variables) {
 
   if ($split) {
     // Add a split button.
-    $split_attributes = drupal_array_merge_deep($button['attributes'], array(
+    $split_attributes = backdrop_array_merge_deep($button['attributes'], array(
       'class' => array('btn', 'dropdown-toggle'),
       'data-toggle' => 'dropdown',
     ));
-    $output .= '<button ' . drupal_attributes($split_attributes) . '><span class="caret"></span></button>';
+    $output .= '<button ' . backdrop_attributes($split_attributes) . '><span class="caret"></span></button>';
   }
 
   // Render the dropdown menu.
@@ -247,7 +247,7 @@ function theme_radix_button_dropdown($variables) {
  * Implements template_proprocess_radix_modal().
  */
 function radix_preprocess_radix_modal(&$variables) {
-  $variables['modal_id'] = drupal_html_id($variables['id']);
+  $variables['modal_id'] = backdrop_html_id($variables['id']);
 
   // Create trigger button.
   if (isset($variables['trigger_button'])) {
@@ -328,7 +328,7 @@ function radix_preprocess_radix_tabs(&$variables) {
 
     // If content is not empty, this tab can toggle a tab.
     if (!empty($tab['content'])) {
-      $tab['id'] = drupal_html_class($tab['title']);
+      $tab['id'] = backdrop_html_class($tab['title']);
       $tab['tab']['#options']['fragment'] = $tab['id'];
       $tab['tab']['#options']['attributes']['data-toggle'] = "tab";
     }
