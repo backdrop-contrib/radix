@@ -1,13 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language ?>" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+<!DOCTYPE html>
+<html<?php print backdrop_attributes($html_attributes); ?>>
   <head>
     <title><?php print $head_title; ?></title>
-    <?php print $head; ?>
-    <?php print $styles; ?>
-    <?php print $scripts; ?>
+    <?php print backdrop_get_html_head(); ?>
+    <?php print backdrop_get_css(); ?>
+    <?php print backdrop_get_js(); ?>
   </head>
-  <body class="<?php print $classes; ?>">
+  <body class="<?php print implode(' ', $classes); ?>">
 
   <header id="header" class="header" role="header">
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -38,6 +37,6 @@
       </div>
     </div> <!-- /#main -->
   </div> <!-- /#main-wrapper -->
-  
+
   </body>
 </html>
