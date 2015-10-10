@@ -52,7 +52,7 @@
 
   <?php if ($rows): ?>
     <div class="view-content">
-      <?php print $rows; ?>
+      <?php print (is_array($rows)) ? backdrop_render($rows) : $rows; ?>
     </div>
   <?php elseif ($empty): ?>
     <div class="view-empty">
