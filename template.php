@@ -17,9 +17,9 @@ require_once dirname(__FILE__) . '/includes/admin.inc';
 require_once dirname(__FILE__) . '/includes/contrib.inc';
 
 /**
- * Implements template_preprocess_html().
+ * Implements template_preprocess_page().
  */
-function radix_preprocess_html(&$variables) {
+function radix_preprocess_page(&$variables) {
   global $base_url;
 
   // Add Bootstrap JS from CDN if bootstrap library is not installed.
