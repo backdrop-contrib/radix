@@ -4,7 +4,7 @@ Radix is a base theme for [Backdrop](http://backdropcms.org). It has Bootstrap a
 
 ## Documentation
 
-http://radixtheme.github.io/documentation
+http://radixtheme.org/documentation
 
 ## Demo
 
