@@ -2,10 +2,10 @@
  * @file
  * JS for Radix.
  */
-(function ($, Drupal, window, document, undefined) {
+(function ($, Backdrop, window, document, undefined) {
 
   // Show dropdown on hover.
-  Drupal.behaviors.radix_dropdown = {
+  Backdrop.behaviors.radix_dropdown = {
     attach: function(context, setting) {
       $('.dropdown').once('radix-dropdown', function(){
         // Show dropdown on hover.
@@ -28,4 +28,4 @@
       });
     });
   });
-})(jQuery, Drupal, this, this.document);
+})(jQuery, Backdrop, this, this.document);
