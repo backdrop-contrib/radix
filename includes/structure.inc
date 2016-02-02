@@ -5,6 +5,26 @@
  */
 
 /**
+ * Implements theme_breadcrumb().
+ */
+function radix_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
+  $output = '';
+  if (!empty($breadcrumb)) {
+    // Add the current page title to the breadcrumb.
+    $breadcrumb[] = drupal_get_title();
+
+    $output .= '<nav role="navigation">';
+    // Provide a navigational heading to give context for breadcrumb links to
+    // screen-reader users. Make the heading invisible with .element-invisible.
+    $output .= '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+    $output .= '<ol class="breadcrumb"><li>' . implode('</li><li>', $breadcrumb) . '</li></ol>';
+    $output .= '</nav>';
+  }
+  return $output;
+}
+
+/**
  * Implements theme_menu_local_tasks().
  */
 function radix_menu_local_tasks(&$variables) {

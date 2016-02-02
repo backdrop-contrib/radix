@@ -1,0 +1,16 @@
+// Page
+// -----------------------------------------------------------------------------
+.page {
+
+  &__content {
+    padding-bottom: $grid-gutter-width;
+  }
+
+  &__footer {
+    font-size: 0.85em;
+    text-align: center;
+    border-top: 1px solid $gray-lighter;
+    padding-top: $grid-gutter-width;
+    padding-bottom: $grid-gutter-width;
+  }
+}

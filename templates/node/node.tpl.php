@@ -2,18 +2,10 @@
 
 /**
  * @file
- * Radix theme implementation to display a node.
- *
- * @see template_preprocess()
- * @see template_preprocess_node()
- * @see template_process()
- *
- * @ingroup themeable
+ * Template display a node.
  */
 ?>
 <article class="<?php print implode(' ', $classes); ?> clearfix"<?php print backdrop_attributes($attributes); ?>>
-
-  <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
@@ -22,7 +14,7 @@
   <?php print render($title_suffix); ?>
 
   <?php if ($display_submitted): ?>
-    <div class="submitted">
+    <div class="submitted text-muted">
       <?php print $submitted; ?>
     </div>
   <?php endif; ?>
