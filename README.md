@@ -3,11 +3,11 @@ Radix is a base theme for [BackdropCMS](http://backdropcms.org). It has Bootstra
 
 ## Documentation
 
-http://radixtheme.org/documentation
+http://docs.radixtheme.org
 
 ## Demo
 
-http://dev-radix-backdrop.pantheon.io
+http://dev-backdrop.pantheon.io
 
 ## License
 
