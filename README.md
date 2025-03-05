@@ -25,6 +25,12 @@ Differences from Drupal 7
 Documentation
 -------------
 
+**Which version should you use?**
+
+* For Bootstrap 5 use 1.x-5.x (coming sooon)
+* For Bootstrap 4, use 1.x-4.x.
+* Older versions of Bootstrap are not supported.
+
 Additional documentation is available on [the Radix documentation site](http://docs.radixtheme.org).
 
 

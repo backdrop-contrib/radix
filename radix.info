@@ -2,11 +2,13 @@ type        = theme
 name        = Radix
 description = A base theme with Bootstrap and Sass based off Radix for Drupal.
 screenshot  = screenshot.png
-backdrop = 1.x
-hidden = true
+backdrop    = 1.x
+
+;hidden = true
 
 ; Javascript
 scripts[] = assets/js/radix.script.js
 
 ; Features
 ;settings[copyright] = 'foo bar'
+
